@@ -9,7 +9,7 @@ window.onload = function() {
   //write your code here
   console.log("Hello Rigo from the console!");
   let numero = [
-    "Ace",
+    "As",
     "2",
     "3",
     "4",
@@ -27,9 +27,17 @@ window.onload = function() {
 
   let numIndx = Math.floor(Math.random() * numero.length);
   let pintaIndex = Math.floor(Math.random() * pinta.length);
+  let pintarandom = pinta[pintaIndex];
 
-  document.querySelectorAll("#simboloTop").append(numero[numIndx]);
-  document.querySelectorAll("#simboloBot").append(numero[numIndx]);
-  document.querySelectorAll("#num").append(pinta[pintaIndex]);
-  console.log(numerorandom + pintarandom);
+  document.querySelector("#simboloTop").append(pinta[pintaIndex]);
+  document.querySelector("#simboloBot").append(pinta[pintaIndex]);
+  document.querySelector("#num").append(numero[numIndx]);
+
+  if (pintarandom == "♥" || pintarandom == "♦") {
+    document.querySelector("#simboloTop").classList.add("text-danger");
+    document.querySelector("#simboloBot").classList.add("text-danger");
+  } else {
+    document.querySelector("#simboloTop").classList.remove("text-danger");
+    document.querySelector("#simboloBot").classList.remove("text-danger");
+  }
 };
